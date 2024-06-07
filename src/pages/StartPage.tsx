@@ -1,13 +1,19 @@
 import { FastBackwardFilled, UploadOutlined } from "@ant-design/icons";
 import { Button, Typography } from "antd";
 import Upload, { RcFile } from "antd/es/upload";
+import { useNavigate } from "react-router-dom";
 
 const { Title, Text } = Typography;
 
 export default function StartPage() {
-  function handleUpload(file: RcFile) {
+  const navigate = useNavigate();
 
+  function handleUpload(file: RcFile) {
     return false;
+  }
+
+  function startReverse() {
+    navigate("/analyzing");
   }
 
   return (
@@ -30,14 +36,23 @@ export default function StartPage() {
         }}
       >
         <Title level={1}>
-          de<Title type="success" style={{display: "inline"}}>rev</Title>o
+          de
+          <Title type="success" style={{ display: "inline" }}>
+            rev
+          </Title>
+          o
         </Title>
         <Upload beforeUpload={handleUpload} maxCount={1}>
           <Button icon={<UploadOutlined />}>Choose file</Button>
         </Upload>
-        <Button icon={<FastBackwardFilled/>} style={{marginTop: "2vh"}} type="primary">
-           Reverse
-         </Button>
+        <Button
+          icon={<FastBackwardFilled />}
+          style={{ marginTop: "2vh" }}
+          type="primary"
+          onClick={startReverse}
+        >
+          Reverse
+        </Button>
       </div>
     </div>
   );

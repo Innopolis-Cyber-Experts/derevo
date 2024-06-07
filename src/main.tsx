@@ -5,6 +5,7 @@ import StartPage from "./pages/StartPage";
 import { ConfigProvider } from "antd";
 import "./App.css"
 import Analyzing from "./pages/Analyzing";
+import DisassemblyView from "./pages/DisassemblyView";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
   {
     path: "/analyzing",
     element: <Analyzing />,
+  },
+  {
+    path: "/disassembly",
+    element: <DisassemblyView />,
   },
 ]);
 

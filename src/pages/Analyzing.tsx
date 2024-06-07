@@ -1,6 +1,20 @@
-import Loader from "react-loaders";
+import { Typography } from "antd";
+import { useEffect } from "react";
+import { Triangle } from "react-loader-spinner";
+import { useNavigate } from "react-router-dom";
+
+
+const { Title, Text } = Typography;
 
 export default function Analyzing() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setTimeout(() => {
+      navigate("/disassembly");
+    }, 2000);
+  }, [])
+
   return (
     <div
       style={{
@@ -20,7 +34,16 @@ export default function Analyzing() {
           height: "100%",
         }}
       >
-        <Loader type="line-scale-pulse-out" active />
+        <Triangle
+          visible={true}
+          height="80"
+          width="80"
+          color="#00b96b"
+          ariaLabel="triangle-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+        />
+        <Title level={4}>Analyzing..</Title>
       </div>
     </div>
   );
